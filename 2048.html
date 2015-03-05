@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>YSJ-2048-RJ</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+    <header>
+        <h1>2048精灵版</h1>
+       
+    </header>
+	<div id="page_fight">
+		<a href="javascript:void(0);" id="new_game_button">新游戏</a><span id="over">fighting!</span>
+        <p>分数: <span id="score">0</span> 最高: <span id="highestScore"></span></p>
+	
+		<div id="touch_cover"></div>
+		
+		<div id="grid_container">
+        
+		<div class="grid_cell" id="grid_cell_0_0"></div>
+        <div class="grid_cell" id="grid_cell_0_1"></div>
+        <div class="grid_cell" id="grid_cell_0_2"></div>
+        <div class="grid_cell" id="grid_cell_0_3"></div>
+    
+        <div class="grid_cell" id="grid_cell_1_0"></div>
+        <div class="grid_cell" id="grid_cell_1_1"></div>
+        <div class="grid_cell" id="grid_cell_1_2"></div>
+        <div class="grid_cell" id="grid_cell_1_3"></div>
+    
+        <div class="grid_cell" id="grid_cell_2_0"></div>
+        <div class="grid_cell" id="grid_cell_2_1"></div>
+        <div class="grid_cell" id="grid_cell_2_2"></div>
+        <div class="grid_cell" id="grid_cell_2_3"></div>
+    
+        <div class="grid_cell" id="grid_cell_3_0"></div>
+        <div class="grid_cell" id="grid_cell_3_1"></div>
+        <div class="grid_cell" id="grid_cell_3_2"></div>
+        <div class="grid_cell" id="grid_cell_3_3"></div>
+		
+		</div>
+	</div>
+	<footer>
+		<span class="cur">战斗</span>
+		<span class="">精灵</span>
+		<span class="">纹章</span>
+		<span class="">成就</span>
+		<span class="">排行</span>
+		<span class="">好友</span>
+	</footer>
+</body>
+</html>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/showanimation.js"></script>
+<script type="text/javascript" src="js/support.js"></script>
+
+<script type="text/javascript">
+//show the highest score
+$('#highestScore').text(window.localStorage.highestScore);
+
+//取消浏览器的所有事件，使得active的样式在手机上正常生效
+document.addEventListener('touchstart',function(){
+    return false;
+},true);
+// 禁止选择
+document.oncontextmenu=function(){
+	return false;
+};
+// H5 plus事件处理
+var as='slide-in-right',at=200;// 默认动画时间
+function plusReady(){
+	// 隐藏滚动条
+	plus.webview.currentWebview().setStyle({scrollIndicator:'none'});
+	// Android处理返回键
+	plus.key.addEventListener('backbutton',function(){
+		if(confirm('确认退出？')){
+			plus.runtime.quit();
+		}
+	},false);
+	compatibleAdjust();
+}
+if(window.plus){
+	plusReady();
+}else{
+	document.addEventListener('plusready',plusReady,false);
+}
+// DOMContentLoaded事件处理
+var _domReady=false;
+document.addEventListener('DOMContentLoaded',function(){
+	_domReady=true;
+	compatibleAdjust();
+},false);
+// 兼容性样式调整
+var _adjust=false;
+function compatibleAdjust(){
+	if(_adjust||!window.plus||!_domReady){
+		return;
+	}
+	_adjust=true;
+	// iOS平台使用div的滚动条
+	if('iOS'==plus.os.name){
+		as='pop-in';
+		at=300;
+		document.getElementById('content').className='scontent';
+	}
+	// 预创建二级窗口
+	//preateWebviews();
+	// 关闭启动界面
+	setTimeout(function(){
+		plus.navigator.closeSplashscreen();
+	},500);
+}
+// 处理点击事件
+var _openw=null;
+function clicked(id){
+	if(_openw){return;}
+	_openw=preate[id];
+	if(_openw){
+		if(_openw.showded){
+			_openw.show(as,at);
+		}else{
+			_openw.show(as,at);
+			_openw.showded=true;
+		}
+		_openw=null;
+	}else{
+		var wa=plus.nativeUI.showWaiting();
+		_openw=plus.webview.create(id,id,{scrollIndicator:'none',scalable:false,popGesture:'hide'},{preate:true});
+		preate[id]=_openw;
+		_openw.addEventListener('loaded',function(){//叶面加载完成后才显示
+//		setTimeout(function(){//延后显示可避免低端机上动画时白屏
+			wa.close();
+			_openw.show(as,at);
+			_openw.showded=true;
+			_openw=null;
+//		},200);
+		},false);
+		_openw.addEventListener('close',function(){//页面关闭后可再次打开
+			_openw=null;
+			preate[id]&&(preate[id]=null);//兼容窗口的关闭
+		},false);
+	}
+}
+
+//
+document.getElementById("new_game_button").addEventListener('touchend',function(){
+	new_game();  	
+},true);
+</script>
