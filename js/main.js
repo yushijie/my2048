@@ -1,5 +1,6 @@
 var board = new Array();
 var score = 0;
+var gold = 0;
 var has_conflicted = new Array();
 var startx = 0;
 var starty = 0;

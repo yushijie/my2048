@@ -21,9 +21,43 @@ function show_move_animation(fromx, fromy, tox, toy) {
 }
 
 function update_score(score) {
+	var score0 = parseInt($('#score').text());
 	$('#score').text(score);
+	
+	var difference = score - score0;
+	if (difference > 0) {
+		$('#score').append('<div class="score-addition">+'+difference+'</div>');
+	}
+	
 	if(!window.localStorage.highestScore || score > window.localStorage.highestScore){
 		window.localStorage.highestScore = score;
 		$('#highestScore').text(score);
 	}
+	
+	update_gold(score);
 }
+
+function update_gold(score) {
+	if(score > 100){
+		gold = parseInt(score/100);
+		
+		var gold0 = parseInt($('#gold').text());
+		$('#gold').text(gold);
+		
+		var difference = gold - gold0;
+		if (difference > 0) {
+			$('#gold').append('<div class="score-addition">+'+difference+'</div>');
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
