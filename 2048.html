@@ -10,12 +10,20 @@
 </head>
 <body>
     <header>
-        <h1>2048精灵版</h1>
-       
-    </header>
+        <h1 class="title">2048精灵版</h1>
+		<div class="scores-container">
+			<div class="score-container" id="score">
+				8888
+				<div class="score-addition">+8</div>
+			</div>
+			<div class="gold-container">888</div>
+		</div>
+		
+	</header>
 	<div id="page_fight">
-		<a href="javascript:void(0);" id="new_game_button">新游戏</a><span id="over">fighting!</span>
-        <p>分数: <span id="score">0</span> 最高: <span id="highestScore"></span></p>
+		<a href="javascript:void(0);" id="new_game_button">新游戏</a>
+		<span id="over">fighting!</span>
+        <p>最高: <span id="highestScore"></span></p>
 	
 		<div id="touch_cover"></div>
 		

@@ -412,7 +412,8 @@ function prepare_for_mobile() {
 	}
 	
 	$('#touch_cover').css('width', grid_container_width - 2 * cell_space);
-	$('#touch_cover').css('height', grid_container_width*1.3);
+	$('#touch_cover').css('height', grid_container_width - 2 * cell_space);
+	$('#touch_cover').css('padding', cell_space);
 	
 	$('#grid_container').css('width', grid_container_width - 2 * cell_space);
 	$('#grid_container').css('height', grid_container_width - 2 * cell_space);
