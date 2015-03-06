@@ -1,5 +1,14 @@
 body {
+	width: 100%;
+	height: 100%;
 	font-family: Microsoft YaHei, Arial, ubuntu, helvetica;
+	color: #333;
+}
+
+body,ul,li,p,span {
+	padding: 0;
+	margin: 0;
+	border: 0;
 }
 
 a {
@@ -8,19 +17,77 @@ a {
   -webkit-user-select: none;
 }
 
+[type=text]{
+	border-radius: 3px;
+	border: 1px solid #aaa;
+	height: 36px;
+	width: 200px;
+	background: #eee;
+}
+[type=password]{
+	border-radius: 3px;
+	border: 1px solid #aaa;
+	height: 36px;
+	width: 200px;
+	background: #eee;
+}
+[type=checkbox]{
+	border-radius: 3px;
+	border: 1px solid #aaa;
+	width: 20px;
+	height: 20px;
+	background: #eee;
+}
+
+.myspan {
+    margin: 0px auto;
+    padding: 10px 10px;
+    background-color: #8f7a66;
+    color: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
 header {
     display: block;
     margin: 0 auto;
     width: 100%;
+	height: 100px;
     text-align: center;
 }
-header h1 {
+header > .head {
+	display: inline-block;
+	float: left;
+	width: 50%;
+	text-align: left;
+}
+header > .head > h1 {
     font-size: 30px;
     font-weight: bold;
-    margin: 0 auto;
+}
+header > .head > p {
+	margin: 0 0 0 10px;
+	line-height: 20px;
+    font-size: 15px;
+	color: #aaa;
 }
 header .title {
+	margin: 10px 0 0 10px;
+}
+header > .best-score {
+	width: 100%;
+	height: 20px;
 	float: left;
+	text-align: right;
+	font-size: 14px;
+	line-height: 14px;
+}
+header > .best-score > p {
+	margin: 0 10px 0 0;
+	color: #aaa;
+}
+header > .best-score > p > span {
+	color: #333;
 }
 header > span {
 	display: inline-block;
@@ -35,6 +102,7 @@ header > span {
 header > .scores-container{
 	float: right;
 	text-align: right;
+	margin: 0 10px 0 0;
 }
 .score-container, .gold-container {
 	position: relative;
@@ -176,10 +244,14 @@ header > .scores-container{
     transform: scale(1); } 
 }
 
+#page_fight > .control {
+	text-align:right;
+	margin: 20px 10px 0 0;
+}
+
 #new_game_button {
     display: inline-block;
     margin: 0px auto;
-    width: 100px;
     padding: 10px 10px;
     background-color: #8f7a66;
     color: white;
@@ -242,3 +314,81 @@ footer .cur {
     text-align: center;
     position: absolute;
 }
+
+.cover {
+	position:fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.4;
+	z-index: 100;
+}
+
+.dialog {
+	position:fixed;
+	top: 40%;
+	left: 50%;
+	margin: -200px 0 0 -200px;
+	width: 400px;
+	background: #fff;
+	z-index: 101;
+	border-radius: 10px;
+	text-align: center;
+}
+.dialog > div {
+	margin: 0 auto;
+	width: 360px;
+}
+.dialog > div > .dialog-title {
+	margin: 10px 0 0 0;
+	font-size: 30px;
+	font-weight: bold;
+}
+.dialog > div > .dialog-content {
+	margin: 30px 0 0 0;
+	font-size: 20px;
+}
+.dialog > div > .dialog-content p {
+	height: 40px;
+	margin: 20px 0 0 0;
+}
+.dialog > div > .dialog-content p > span {
+	margin: 0 0 0 40px;
+}
+.dialog > div > .dialog-content p > label {
+	vertical-align: middle;
+}
+.dialog > div > .dialog-content p > input {
+	vertical-align: middle;
+}
+.err {
+	color: #FF0000;
+	font-size: 16px;
+	font-weight: 400;
+	height: 16px;
+	margin: 0;
+}
+.login-btn {
+	padding: 10px 30px;
+	font-size: 20px;
+}
+.dialog > div > .dialog-confirm {
+	margin: 30px;
+	font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
