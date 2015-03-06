@@ -17,7 +17,7 @@ function show_move_animation(fromx, fromy, tox, toy) {
 	number_cell.animate({
 		top: get_pos_top(tox, toy),
 		left: get_pos_left(tox, toy)
-	}, 100);
+	},300);
 }
 
 function update_score(score) {
@@ -38,16 +38,14 @@ function update_score(score) {
 }
 
 function update_gold(score) {
-	if(score > 100){
-		gold = parseInt(score/100);
+	gold = parseInt(score/100);
 		
-		var gold0 = parseInt($('#gold').text());
+	var gold0 = parseInt($('#gold').text());
+		
+	var difference = gold - gold0;
+	if (difference > 0) {
 		$('#gold').text(gold);
-		
-		var difference = gold - gold0;
-		if (difference > 0) {
-			$('#gold').append('<div class="score-addition">+'+difference+'</div>');
-		}
+		$('#gold').append('<div class="score-addition">+'+difference+'</div>');
 	}
 }
 

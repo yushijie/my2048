@@ -277,7 +277,7 @@ function move_left() {
 						board[i][j] = 0;
 						//add score
 						score += board[i][k];
-						update_score(score);
+						
 						has_conflicted[i][k] = true;
 						break;
 					}
@@ -285,7 +285,10 @@ function move_left() {
 			}
 		}
 	}
-	setTimeout('update_board_view()', 10);
+	
+	update_score(score);
+	
+	setTimeout('update_board_view()', 300);
 	return true;
 }
 
@@ -309,7 +312,7 @@ function move_right() {
 						board[i][j] = 0;
 						//add score
 						score += board[i][k];
-						update_score(score);
+						
 						has_conflicted[i][k] = true;
 						break;
 					}
@@ -317,7 +320,10 @@ function move_right() {
 			}
 		}
 	}
-	setTimeout('update_board_view()', 100);
+	
+	update_score(score);
+	
+	setTimeout('update_board_view()', 300);
 	return true;
 }
 
@@ -341,7 +347,7 @@ function move_up() {
 						board[i][j] = 0;
 						//add score
 						score += board[k][j];
-						update_score(score);
+						
 						has_conflicted[k][j] = true;
 						break;
 					}
@@ -349,7 +355,10 @@ function move_up() {
 			}
 		}
 	}
-	setTimeout('update_board_view()', 100);
+	
+	update_score(score);
+	
+	setTimeout('update_board_view()', 300);
 	return true;
 }
 
@@ -373,7 +382,7 @@ function move_down() {
 						board[i][j] = 0;
 						//add score
 						score += board[k][j];
-						update_score(score);
+						
 						has_conflicted[k][j] = true;
 						break;
 					}
@@ -381,7 +390,10 @@ function move_down() {
 			}
 		}
 	}
-	setTimeout('update_board_view()', 100);
+	
+	update_score(score);
+	
+	setTimeout('update_board_view()', 300);
 	return true;	
 }
 
