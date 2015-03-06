@@ -211,51 +211,13 @@ container.addEventListener('touchmove', function(event) {
 	}
 });
 
-document.addEventListener('touchend', function(event) {
-	event.preventDefault();
-//	endx = event.changedTouches[0].pageX;
-//	endy = event.changedTouches[0].pageY;
-//
-//	var deltax = endx - startx;
-//	var deltay = endy - starty;
-//	if (Math.abs(deltax) < 0.05 * document_width && Math.abs(deltay) < 0.05 * document_width) {
-//		return;
-//	}
-	if ($('#score').text() == success_string) {
-		new_game();
-		return;
-	}
-//	//x
-//	if (Math.abs(deltax) >= Math.abs(deltay)) {
-//		if (deltax > 0) {
-//			//move right
-//			if (move_right()) {
-//				setTimeout('generate_one_number()', 210);
-//				setTimeout('is_gameover()', 300);
-//			}
-//		} else {
-//			//move left
-//			if (move_left()) {
-//				setTimeout('generate_one_number()', 210);
-//				setTimeout('is_gameover()', 300);
-//			}
-//		}
-//	} else {	//y
-//		if (deltay > 0) {
-//			//move down
-//			if (move_down()) {
-//				setTimeout('generate_one_number()', 210);
-//				setTimeout('is_gameover()', 300);
-//			}
-//		} else {
-//			//move up
-//			if (move_up()) {
-//				setTimeout('generate_one_number()', 210);
-//				setTimeout('is_gameover()', 300);
-//			}
-//		}
-//	}
-});
+// document.addEventListener('touchend', function(event) {
+	// event.preventDefault();
+	// if ($('#score').text() == success_string) {
+		// new_game();
+		// return;
+	// }
+// });
 
 function move_left() {
 	if (!can_move_left(board)) {
