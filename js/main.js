@@ -250,7 +250,7 @@ function move_left() {
 	
 	update_score(score);
 	
-	setTimeout('update_board_view()', 300);
+	setTimeout('update_board_view()', 100);
 	return true;
 }
 
@@ -285,7 +285,7 @@ function move_right() {
 	
 	update_score(score);
 	
-	setTimeout('update_board_view()', 300);
+	setTimeout('update_board_view()', 100);
 	return true;
 }
 
@@ -320,7 +320,7 @@ function move_up() {
 	
 	update_score(score);
 	
-	setTimeout('update_board_view()', 300);
+	setTimeout('update_board_view()', 100);
 	return true;
 }
 
@@ -355,7 +355,7 @@ function move_down() {
 	
 	update_score(score);
 	
-	setTimeout('update_board_view()', 300);
+	setTimeout('update_board_view()', 100);
 	return true;	
 }
 

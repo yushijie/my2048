@@ -17,7 +17,7 @@ function show_move_animation(fromx, fromy, tox, toy) {
 	number_cell.animate({
 		top: get_pos_top(tox, toy),
 		left: get_pos_left(tox, toy)
-	},300);
+	},100);
 }
 
 function update_score(score) {
